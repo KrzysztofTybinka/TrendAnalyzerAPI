@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities.Calculations
+﻿namespace Domain.Helpers
 {
     /// <summary>
     /// Represents the result of a trend rate.

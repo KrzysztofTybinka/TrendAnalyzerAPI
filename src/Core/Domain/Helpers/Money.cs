@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace Domain.Helpers
 {
     public record Money(int Value, string Currency);
 }
