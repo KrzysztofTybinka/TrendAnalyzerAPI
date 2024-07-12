@@ -9,7 +9,7 @@ namespace Domain.Repositories
 {
     public interface ICalculationRepository
     {
-        Task<AbstractCalculation> GetByNameAsync(string name);
+        Task<AbstractCalculation?> GetByNameAsync(string name);
         Task<IEnumerable<AbstractCalculation>> GetAllAsync();
     }
 }

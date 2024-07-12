@@ -23,9 +23,9 @@ namespace Persistance.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<AbstractCalculation> GetByNameAsync(string name)
+        public async Task<AbstractCalculation?> GetByNameAsync(string name)
         {
-            var articles = _dbContext.Articles;
+
             throw new NotImplementedException();
         }
     }
