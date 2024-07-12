@@ -9,7 +9,8 @@ using Domain.Helpers;
 
 namespace Domain.Entities
 {
-    public class Product(int Id, string Name, Category Category, Money Price, DateTime? LaunchTime = null)
+    public class Product(int Id, string Name, Category Category, 
+        Money Price, DateTime? LaunchTime = null)
     {
         public int Id { get; set; } = Id;
         public string Name { get; set; } = Name;
