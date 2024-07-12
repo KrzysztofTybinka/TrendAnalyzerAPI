@@ -18,18 +18,18 @@ namespace Application.Services
             _calculationRepository = calculationRepository;
         }
 
-        public Task<IEnumerable<AbstractCalculation>> GetAllAsync()
+        public IEnumerable<AbstractCalculation> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<AbstractCalculation> GetBynameAsync(string name)
+        public AbstractCalculation GetByname(string name)
         {
-            var calculation = await _calculationRepository.GetByNameAsync(name);
+            var calculation = _calculationRepository.GetByName(name);
 
             if (calculation == null)
             {
-                throw new CalculationNotFoundException();
+                throw new CalculationNotFoundException(name);
             }
 
             return calculation;

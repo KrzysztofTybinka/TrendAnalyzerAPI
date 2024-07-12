@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Calculations;
+using Domain.Helpers;
 using Domain.Repositories;
 using Persistance.Database;
 using System;
@@ -11,22 +12,19 @@ namespace Persistance.Repositories
 {
     public class CalculationRepository : ICalculationRepository
     {
-        private readonly ApplicationDbContext _dbContext;
-
-        public CalculationRepository(ApplicationDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        public Task<IEnumerable<AbstractCalculation>> GetAllAsync()
+        public IEnumerable<AbstractCalculation> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<AbstractCalculation?> GetByNameAsync(string name)
+        public AbstractCalculation GetByName(string name)
         {
+            return CalculationsFactory.GetCalculatorByName(name);
+        }
 
-            throw new NotImplementedException();
+        public Result<T> Calculate<T>(AbstractCalculation calculation)
+        {
+            return calculation.Calculate<T>();
         }
     }
 }

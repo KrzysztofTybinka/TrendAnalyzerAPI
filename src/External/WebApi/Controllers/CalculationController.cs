@@ -1,20 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Application.Services;
+using Domain.Entities.Calculations;
 
 namespace WebApi.Controllers
 {
     public class CalculationController : Controller
     {
-        public IActionResult Index()
+        private readonly CalculationService _calculatorService;
+
+        public CalculationController()
         {
-            return View();
+            
         }
 
         [HttpGet]
-        public async Task<IResult> GetByName(string name, CalculationService calculationService)
+        [Route("/api/calculations/{name}")]
+        public async Task<IResult> CalculateByNames(string[] names, [FromServices]CalculationService calculationService)
         {
-            var calculation = await calculationService.GetBynameAsync(name);
-            return calculation is null ? Results.NotFound() : Results.Ok(calculation);
+            var calculations = new List<AbstractCalculation>();
+            foreach (var name in names)
+            {
+                calculations.Add(calculationService.GetByname(name));
+            }
+            return calculations is not null && calculations.Count > 0
+                ? Results.Ok(calculations) : Results.NotFound();
         }
     }
 }

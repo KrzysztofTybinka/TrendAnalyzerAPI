@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Calculations;
+using Domain.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Domain.Repositories
 {
     public interface ICalculationRepository
     {
-        Task<AbstractCalculation?> GetByNameAsync(string name);
-        Task<IEnumerable<AbstractCalculation>> GetAllAsync();
+        AbstractCalculation GetByName(string name);
+        IEnumerable<AbstractCalculation> GetAll();
+        Result<T> CalculateOne<T>(AbstractCalculation calculation);
     }
 }

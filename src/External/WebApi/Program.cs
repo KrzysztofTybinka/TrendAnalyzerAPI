@@ -12,7 +12,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<CalculationService>();
-
 builder.Services.AddScoped<ICalculationRepository, CalculationRepository>();
 
 var app = builder.Build();

@@ -8,8 +8,8 @@ namespace Domain.Exceptions
 {
     public class CalculationNotFoundException : NotFoundException
     {
-        public CalculationNotFoundException()
-            : base($"There is no calculation named: {}.")
+        public CalculationNotFoundException(string name)
+            : base($"There is no calculation named: {name}.")
         {
             
         }
