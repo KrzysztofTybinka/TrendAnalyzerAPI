@@ -18,9 +18,10 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [Route("/api/calculations/{name}")]
-        public async Task<IResult> CalculateByNames(string name)
+        public IResult CalculateByNames(string name)
         {
-            var calculation = _calculatorService.GetByname(name)
+            var calculation = _calculatorService
+                .GetByname(name)
                 .Calculate();
 
             return calculation is not null ? Results.Ok(calculation) : Results.NotFound();

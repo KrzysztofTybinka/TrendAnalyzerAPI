@@ -21,6 +21,7 @@ namespace Persistance.Repositories
         public IEnumerable<Order> GetAll()
         {
             var oredrs = _dbContext.Orders.ToList();
+            //to-do mapper from EF models to domain entites
             return new List<Order>();
         }
 

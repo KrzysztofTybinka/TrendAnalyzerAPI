@@ -16,7 +16,7 @@ namespace Application
         public AbstractCalculator GetCalculatorByName(string name)
         {
             if (name == "Revenue")
-                return new RevenueCalculator(_orderRepository);
+                return new RevenueCalculator(_orderRepository ?? throw new NullReferenceException());
             else
                 throw new CalculationNotFoundException(name);
         }
