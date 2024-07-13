@@ -11,11 +11,11 @@ namespace Application.Services
 {
     public sealed class CalculatorService
     {
-        private readonly ICalculatorRepository _calculationRepository;
+        private readonly ICalculatorRepository _calculatorRepository;
 
-        public CalculatorService(ICalculatorRepository calculationRepository)
+        public CalculatorService(ICalculatorRepository calculatorRepository)
         {
-            _calculationRepository = calculationRepository;
+            _calculatorRepository = calculatorRepository;
         }
 
         public IEnumerable<AbstractCalculator> GetAll()
@@ -25,7 +25,7 @@ namespace Application.Services
 
         public AbstractCalculator GetByname(string name)
         {
-            var calculation = _calculationRepository.GetByName(name);
+            var calculation = _calculatorRepository.GetByName(name);
 
             if (calculation == null)
             {

@@ -7,21 +7,20 @@ using Domain.Helpers;
 
 namespace Domain.Entities
 {
-    public class Order(int Id, string Name, string Description,
-        List<Cost> TotalCost, Money TotalPrice, bool Paid, 
-        Product Product, Buyer Buyer)
+    public class Order()
     {
-        public int Id { get; set; } = Id;
-        public string Name { get; set; } = Name;
-        public string Description { get; set; } = Description;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         //Paid by a seller, shipping costs etc.
-        public List<Cost> TotalCost { get; set; } = TotalCost;
+        public List<Cost> TotalCost { get; set; }
 
         //Paid by a buyer
-        public Money TotalPrice { get; set; } = TotalPrice;
-        public bool Paid { get; set; } = Paid;
-        public Product Product { get; set; } = Product;
-        public Buyer Buyer { get; set; } = Buyer;
+        public Money TotalPrice { get; set; }
+        public bool Paid { get; set; }
+        public Product Product { get; set; }
+        public Buyer Buyer { get; set; }
+        public DateTime OrderDate { get; set; }
     }
 }

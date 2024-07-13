@@ -7,23 +7,23 @@ namespace WebApi.Controllers
     public class CalculatorController : Controller
     {
         private readonly CalculatorService _calculatorService;
+        private readonly OrderService _orderService;
 
-        public CalculatorController()
+        public CalculatorController(CalculatorService calculatorService,
+            OrderService orderService)
         {
-            
+            _calculatorService = calculatorService;
+            _orderService = orderService;
         }
 
         [HttpGet]
         [Route("/api/calculations/{name}")]
-        public async Task<IResult> CalculateByNames(string[] names, [FromServices]CalculatorService calculationService)
+        public async Task<IResult> CalculateByNames(string name)
         {
-            var calculations = new List<AbstractCalculator>();
-            foreach (var name in names)
-            {
-                calculations.Add(calculationService.GetByname(name));
-            }
-            return calculations is not null && calculations.Count > 0
-                ? Results.Ok(calculations) : Results.NotFound();
+            var calculation = _calculatorService.GetByname(name)
+                .Calculate();
+
+            return calculation is not null ? Results.Ok(calculation) : Results.NotFound();
         }
     }
 }

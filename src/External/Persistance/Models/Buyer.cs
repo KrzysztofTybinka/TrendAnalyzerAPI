@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-using Domain.Helpers;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Persistance.Models
 {
-    public class Product
+    public class Buyer
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Category Category { get; set; }
-        public double Price { get; set; }
-        public DateTime? LaunchTime { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
     }
 }

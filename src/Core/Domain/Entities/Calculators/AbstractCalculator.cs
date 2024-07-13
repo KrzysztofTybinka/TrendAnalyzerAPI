@@ -11,6 +11,6 @@ namespace Domain.Entities.Calculators
     {
         public abstract string Name { get; }
         public abstract string Details { get; }
-        protected abstract Result Calculate();
+        public abstract Result Calculate();
     }
 }

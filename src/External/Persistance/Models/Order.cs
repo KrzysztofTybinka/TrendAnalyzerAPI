@@ -10,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace Persistance.Models
 {
-    public class Product
+    public class Order
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Category Category { get; set; }
-        public double Price { get; set; }
-        public DateTime? LaunchTime { get; set; }
+        public string Description { get; set; }
+        public double TotalPrice { get; set; }
+        public bool Paid { get; set; }
+        public Product Product { get; set; }
+        public Buyer Buyer { get; set; }
+        public DateTime OrderDate { get; set; }
     }
 }

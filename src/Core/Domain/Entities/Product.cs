@@ -9,13 +9,12 @@ using Domain.Helpers;
 
 namespace Domain.Entities
 {
-    public class Product(int Id, string Name, Category Category, 
-        Money Price, DateTime? LaunchTime = null)
+    public class Product()
     {
-        public int Id { get; set; } = Id;
-        public string Name { get; set; } = Name;
-        public Category Category { get; set; } = Category;
-        public Money Price { get; set; } = Price;
-        public DateTime? LaunchTime { get; set; } = LaunchTime;
+        public int Id { get; set; }
+        public string Name { get; set; } 
+        public Category Category { get; set; }
+        public Money Price { get; set; } 
+        public DateTime? LaunchTime { get; set; } 
     }
 }

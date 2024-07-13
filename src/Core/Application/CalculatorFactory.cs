@@ -1,22 +1,24 @@
 ﻿using Domain.Entities.Calculators;
 using Domain.Exceptions;
+using Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Calculators
+namespace Application
 {
-    public static class CalculatorFactory
+    public class CalculatorFactory(IOrderRepository? orderRepository)
     {
-        public static AbstractCalculator GetCalculatorByName(string name)
+        private readonly IOrderRepository? _orderRepository = orderRepository;
+
+        public AbstractCalculator GetCalculatorByName(string name)
         {
             if (name == "Revenue")
-                return new RevenueCalculator();
+                return new RevenueCalculator(_orderRepository);
             else
                 throw new CalculationNotFoundException(name);
         }
     }
 }
-
