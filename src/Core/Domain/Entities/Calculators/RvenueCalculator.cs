@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Calculations
+namespace Domain.Entities.Calculators
 {
-    public class RevenueCalculator : AbstractCalculation
+    public class RevenueCalculator : AbstractCalculator
     {
         public override string Name => "Revenue";
 
-        public override string Details { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Details => "Details...";
 
-        public override Result<T> Calculate<T>()
+        protected override Result Calculate()
         {
             throw new NotImplementedException();
         }

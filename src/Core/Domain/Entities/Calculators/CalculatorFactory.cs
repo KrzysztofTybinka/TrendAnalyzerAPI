@@ -1,15 +1,16 @@
-﻿using Domain.Exceptions;
+﻿using Domain.Entities.Calculators;
+using Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Calculations
+namespace Domain.Entities.Calculators
 {
-    public static class CalculationsFactory
+    public static class CalculatorFactory
     {
-        public static AbstractCalculation<T> GetCalculatorByName<T>(string name)
+        public static AbstractCalculator GetCalculatorByName(string name)
         {
             if (name == "Revenue")
                 return new RevenueCalculator();
@@ -18,3 +19,4 @@ namespace Domain.Entities.Calculations
         }
     }
 }
+

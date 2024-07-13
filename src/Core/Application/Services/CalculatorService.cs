@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Calculations;
+﻿using Domain.Entities.Calculators;
 using Domain.Exceptions;
 using Domain.Repositories;
 using System;
@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public sealed class CalculationService
+    public sealed class CalculatorService
     {
-        private readonly ICalculationRepository _calculationRepository;
+        private readonly ICalculatorRepository _calculationRepository;
 
-        public CalculationService(ICalculationRepository calculationRepository)
+        public CalculatorService(ICalculatorRepository calculationRepository)
         {
             _calculationRepository = calculationRepository;
         }
 
-        public IEnumerable<AbstractCalculation> GetAll()
+        public IEnumerable<AbstractCalculator> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public AbstractCalculation GetByname(string name)
+        public AbstractCalculator GetByname(string name)
         {
             var calculation = _calculationRepository.GetByName(name);
 

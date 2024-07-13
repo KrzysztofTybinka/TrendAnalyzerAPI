@@ -5,9 +5,9 @@
     /// </summary>
     /// <typeparam name="T">Value of a rate can be anything from an
     /// intiger to whole array of more complex types.</typeparam>
-    public class Result<T>
+    public class Result
     {
-        public T? Value { get; set; }
-        public string? Unit { get; set; }
+        public List<double> Value { get; set; } = [];
+        public string? Unit { get; set; } = null;
     }
 }
